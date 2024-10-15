@@ -22,12 +22,10 @@ class SecurityController extends AppController {
                     header('Location: /adminPanel');
                     exit();
                 }
-                // Przekierowanie na dashboard po poprawnym zalogowaniu
                 header('Location: /dashboard');
                 exit();
             } else {
-                // Jeśli logowanie nieudane, wyświetl komunikat o błędzie
-                $this->render('login', ['error' => 'Niepoprawny email lub hasło.']);
+                $this->render('login', ['error' => 'Wrong email or password.']);
             }
         } else {
             $this->render('login');
@@ -46,11 +44,9 @@ class SecurityController extends AppController {
             $result = $user->register($name, $email, $password, $confirmPassword);
             
             if ($result === true) {
-                // Przekierowanie na login po udanej rejestracji
                 header('Location: /login');
                 exit();
             } else {
-                // Jeśli rejestracja nieudana, wyświetl komunikat o błędzie
                 $this->render('register', ['error' => $result]);
             }
         } else {
@@ -64,7 +60,6 @@ class SecurityController extends AppController {
         session_unset();
         session_destroy();
 
-        // Przekieruj na stronę główną
         header('Location: /login');
         exit();
     }
