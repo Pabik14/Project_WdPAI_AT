@@ -25,3 +25,33 @@ CREATE TABLE anime_list (
 
 INSERT INTO users (name, email, password) 
 VALUES ('Admin', 'admin@admin.pl', '123');
+
+INSERT INTO users (name, email, password) 
+VALUES ('Test', 'test@test.pl', '123');
+
+INSERT INTO users (name, email, password) 
+VALUES ('Test2', 'test2@test.pl', '123');
+
+INSERT INTO anime_list (user_id, anime_name, category, type, status, episodes_count) VALUES
+(2, 'Naruto', 'Akcja', 'Tv', 'watching', 220),
+(2, 'One Piece', 'Przygodowe', 'Tv', 'watching', 1040),
+(2, 'Attack on Titan', 'Fantasy', 'Tv', 'watched', 75),
+(2, 'My Hero Academia', 'Akcja', 'Tv', 'planned', 88),
+(2, 'Death Note', 'Mystery', 'Tv', 'watched', 37),
+(2, 'Fullmetal Alchemist: Brotherhood', 'Akcja', 'Tv', 'watched', 64),
+(2, 'Your Name', 'Mystery', 'Movie', 'watched', 1),
+(2, 'Sword Art Online', 'Sci-Fi', 'Tv', 'on hold', 25),
+(2, 'Dragon Ball Z', 'Akcja', 'Tv', 'abandoned', 291),
+(2, 'Steins;Gate', 'Sci-Fi', 'Tv', 'planned', 24);
+
+INSERT INTO anime_list (user_id, anime_name, category, type, status, episodes_count) VALUES
+(3, 'Naruto', 'Akcja', 'Tv', 'watching', 220),
+(3, 'One Piece', 'Przygodowe', 'Tv', 'watching', 1040),
+(3, 'Attack on Titan', 'Fantasy', 'Tv', 'watched', 75),
+(3, 'My Hero Academia', 'Akcja', 'Tv', 'planned', 88),
+(3, 'Death Note', 'Mystery', 'Tv', 'watched', 37),
+(3, 'Fullmetal Alchemist: Brotherhood', 'Akcja', 'Tv', 'watched', 64),
+(3, 'Your Name', 'Mystery', 'Movie', 'watched', 1),
+(3, 'Sword Art Online', 'Sci-Fi', 'Tv', 'on hold', 25),
+(3, 'Dragon Ball Z', 'Akcja', 'Tv', 'abandoned', 291),
+(3, 'Steins;Gate', 'Sci-Fi', 'Tv', 'planned', 24);
