@@ -31,20 +31,16 @@ class DashboardController extends AppController {
         // Pobierz user_id z sesji
         $userId = $_SESSION['user_id'];
 
-        // Stwórz obiekt User i pobierz nazwę użytkownika
         $user = new User();
         $userName = $user->getNameById($userId);
 
-        // Renderuje widok dashboard i przekazuje nazwę użytkownika do widoku
         $this->render('dashboard', ['userName' => $userName]);
     }
 
-    // Metoda do pobierania statystyk anime z bazy danych
     public function getAnimeStats()
     {
         session_start();
 
-        // Sprawdź, czy sesja użytkownika jest aktywna
         if (!isset($_SESSION['user_id'])) {
             header('Location: /login');
             exit();
@@ -57,28 +53,24 @@ class DashboardController extends AppController {
         $userId = $_SESSION['user_id'];
 
         try {
-            // Pobierz statystyki statusu anime
             $statusSql = "SELECT status, COUNT(*) as count FROM anime_list WHERE user_id = :user_id GROUP BY status";
             $stmt = $this->conn->prepare($statusSql);
             $stmt->bindParam(':user_id', $userId, PDO::PARAM_INT);
             $stmt->execute();
             $statusData = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-            // Pobierz statystyki typu anime
             $typeSql = "SELECT type, COUNT(*) as count FROM anime_list WHERE user_id = :user_id GROUP BY type";
             $stmt = $this->conn->prepare($typeSql);
             $stmt->bindParam(':user_id', $userId, PDO::PARAM_INT);
             $stmt->execute();
             $typeData = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-            // Zwrot danych w formacie JSON
             header('Content-Type: application/json');
             echo json_encode(['statusData' => $statusData, 'typeData' => $typeData]);
             exit();
         } catch (Exception $e) {
-            // Obsługa błędu w przypadku problemów z bazą danych
             header('Content-Type: application/json');
-            echo json_encode(['error' => 'Błąd podczas pobierania statystyk: ' . $e->getMessage()]);
+            echo json_encode(['error' => 'Error when download stats: ' . $e->getMessage()]);
             exit();
         }
     }

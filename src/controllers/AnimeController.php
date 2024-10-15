@@ -13,14 +13,11 @@ class AnimeController extends AppController {
         $this->conn = $db->connect();
     }
 
-    // Wyświetla listę anime zalogowanego użytkownika
     public function showList()
     {
         session_start();
 
-        // Sprawdź, czy użytkownik jest zalogowany
         if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
-            // Jeśli użytkownik nie jest zalogowany, przekieruj na stronę logowania
             header('Location: /login');
             exit();
         }
@@ -29,14 +26,11 @@ class AnimeController extends AppController {
             header('Location: /adminPanel');
             exit();
         }
-        // Pobierz user_id z sesji
         $userId = $_SESSION['user_id'];
 
-        // Stwórz obiekt User i pobierz nazwę użytkownika
         $user = new User();
         $userName = $user->getNameById($userId);
 
-        // Pobieranie danych z bazy danych
         $sql = "SELECT id, anime_name, category, type, status, episodes_count 
         FROM anime_list 
         WHERE user_id = :user_id";
@@ -45,7 +39,6 @@ class AnimeController extends AppController {
         $stmt->bindParam(':user_id', $userId, PDO::PARAM_INT);
         $stmt->execute();
 
-        // Pobierz wszystkie wyniki i upewnij się, że `null` jest zastępowane domyślną wartością
         $animeList = array_map(function($anime) {
         return [
         'id' => $anime['id'] ?? '',
@@ -58,7 +51,6 @@ class AnimeController extends AppController {
         }, $stmt->fetchAll(PDO::FETCH_ASSOC));
 
 
-        // Renderuj widok `animelist.html` z przekazanymi wynikami
         $this->render('animelist', [
             'userName' => $userName,
             'animeList' => $animeList
