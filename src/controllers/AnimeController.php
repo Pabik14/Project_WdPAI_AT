@@ -65,7 +65,7 @@ class AnimeController extends AppController {
         header('Content-Type: application/json');
     
         if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
-            echo json_encode(['error' => 'Nieautoryzowany dostęp.']);
+            echo json_encode(['error' => 'Cannot access.']);
             exit();
         }
         $userEmail = $_SESSION['email'];
@@ -101,11 +101,11 @@ class AnimeController extends AppController {
                 echo json_encode($animeList);
                 exit();
             } catch (Exception $e) {
-                echo json_encode(['error' => 'Błąd podczas przetwarzania zapytania: ' . $e->getMessage()]);
+                echo json_encode(['error' => 'Error processing request: ' . $e->getMessage()]);
                 exit();
             }
         } else {
-            echo json_encode(['error' => 'Nieprawidłowy typ treści.']);
+            echo json_encode(['error' => 'Invalid content type.']);
             exit();
         }
     }
@@ -117,7 +117,7 @@ class AnimeController extends AppController {
         header('Content-Type: application/json');
     
         if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
-            echo json_encode(['error' => 'Nieautoryzowany dostęp.']);
+            echo json_encode(['error' => 'Unauthorized access.']);
             exit();
         }
     
@@ -137,21 +137,21 @@ class AnimeController extends AppController {
                     $stmt->bindParam(':user_id', $userId, PDO::PARAM_INT);
     
                     if ($stmt->execute()) {
-                        echo json_encode(['success' => 'Anime zostało usunięte.']);
+                        echo json_encode(['success' => 'Anime was deleted.']);
                     } else {
-                        echo json_encode(['error' => 'Nie udało się usunąć anime.']);
+                        echo json_encode(['error' => 'Could not delete anime.']);
                     }
                     exit();
                 } catch (Exception $e) {
-                    echo json_encode(['error' => 'Błąd podczas przetwarzania zapytania: ' . $e->getMessage()]);
+                    echo json_encode(['error' => 'Error processing request: ' . $e->getMessage()]);
                     exit();
                 }
             } else {
-                echo json_encode(['error' => 'Brak id anime do usunięcia.']);
+                echo json_encode(['error' => 'No anime id to remove.']);
                 exit();
             }
         } else {
-            echo json_encode(['error' => 'Nieprawidłowy typ treści.']);
+            echo json_encode(['error' => 'Invalid content type.']);
             exit();
         }
     }
