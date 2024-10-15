@@ -11,7 +11,6 @@
 
 </head>
 <body>
-   <!-- Pasek nawigacyjny -->
    <nav class="navbar">
     <div class="navbar-brand">
         <button class="burger-menu" id="burger-menu">
@@ -34,12 +33,10 @@
     </ul>
 </nav>
 <div class="container">
-    <!-- Nagłówek strony -->
     <header class="header">
         <h1>Your Anime List</h1>
     </header>
 
-    <!-- Pole wyszukiwania -->
     <div class="search-container">
         <input type="text" id="search-input" placeholder="Search anime...">
         <select id="status-filter">
@@ -61,7 +58,6 @@
     </a>
 
 
-    <!-- Główna treść strony - lista anime -->
     <main class="main-content">
         <table class="anime-table">
             <thead>
@@ -75,7 +71,6 @@
                 </tr>
             </thead>
             <tbody id="anime-table-body">
-                <!-- Iteruj przez każdy element listy anime i wyświetl dane -->
                 <?php if (isset($animeList) && !empty($animeList)): ?>
                     <?php foreach ($animeList as $anime): ?>
                         <tr>
@@ -95,7 +90,6 @@
                         </tr>
                     <?php endforeach; ?>
                 <?php else: ?>
-                    <!-- Komunikat, gdy lista anime jest pusta -->
                     <tr>
                         <td colspan="6">No anime found in your list.</td>
                     </tr>

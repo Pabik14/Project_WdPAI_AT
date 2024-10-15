@@ -23,15 +23,15 @@
       <h1>Admin Panel</h1>        </header>
 
         <main class="main-content">
-            <h2>Lista użytkowników</h2>
+            <h2>Users List</h2>
             <br>
             <br>
             <table>
                 <thead>
                     <tr>
-                        <th>Nazwa</th>
+                        <th>Nickname</th>
                         <th>Email</th>
-                        <th>Usuń</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -50,10 +50,10 @@
                 </tbody>
             </table>
 <br>
-            <h2>Pobierz bazę danych</h2>
+            <h2>Download databese</h2>
             <br>
             <form action="/downloadDatabase" method="POST">
-                <button type="submit">Pobierz kopię zapasową bazy danych</button>
+                <button type="submit" disabled>Download</button>
             </form>
         </main>
     </div>
