@@ -41,11 +41,11 @@ class User {
     public function register($name, $email, $password, $confirmPassword)
     {
         if (empty($name) || empty($email) || empty($password) || empty($confirmPassword)) {
-            return "Wszystkie pola są wymagane!";
+            return "All fields are required!";
         }
     
         if ($password !== $confirmPassword) {
-            return "Hasła się nie zgadzają!";
+            return "The passwords do not match!";
         }
     
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
@@ -61,13 +61,11 @@ class User {
             return true;
             
         } catch (PDOException $e) {
-            // Sprawdź typ błędu (np. unikalność emaila)
-            if ($e->getCode() == 23505) { // Kod błędu dla naruszenia unikalności
-                return "Podany email jest już zarejestrowany.";
+            if ($e->getCode() == 23505) { 
+                return "The email address provided is already registered.";
             }
 
-            // Inne błędy
-            return "Wystąpił błąd podczas rejestracji. Spróbuj ponownie później.";
+            return "An error occurred while registering. Please try again later.";
         }
     }
 
