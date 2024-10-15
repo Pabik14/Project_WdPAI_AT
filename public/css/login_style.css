@@ -1,4 +1,3 @@
-/* Resetowanie marginesów i stylów domyślnych */
 * {
     margin: 0;
     padding: 0;
@@ -15,13 +14,11 @@ body {
     padding: 20px;
 }
 
-/* Kontener główny */
 .container {
     text-align: center;
     color: #fff;
 }
 
-/* Stylizacja strzałki powrotu */
 .back-arrow {
     display: inline-block;
     margin-top: 20px;
@@ -36,21 +33,18 @@ body {
     color: #d14eea;
 }
 
-/* Nagłówek strony */
 .header h1 {
     font-size: 48px;
     margin-bottom: 60px;
     font-weight: bold;
 }
 
-/* Główna treść strony */
 .main-content {
     max-width: 400px;
     width: 100%;
     margin: 0 auto;
 }
 
-/* Formularz logowania */
 .login-form {
     background-color: rgba(255, 255, 255, 0.1);
     padding: 30px;
@@ -64,7 +58,6 @@ body {
     color: #fff;
 }
 
-/* Grupa pól formularza */
 .input-group {
     margin-bottom: 20px;
     text-align: left;
@@ -87,7 +80,6 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Przyciski */
 .button {
     display: inline-block;
     padding: 12px 30px;
@@ -108,26 +100,21 @@ body {
     transform: scale(1.05);
 }
 
-/* Responsywność */
 @media (max-width: 768px) {
-    /* Zmniejszenie rozmiaru nagłówka */
     .header h1 {
         font-size: 36px;
         margin-bottom: 40px;
     }
 
-    /* Formularz logowania */
     .login-form {
         padding: 20px;
     }
 
-    /* Pole formularza */
     .input-group input {
         padding: 10px;
         font-size: 14px;
     }
 
-    /* Dostosowanie przycisków */
     .button {
         padding: 10px 25px;
         font-size: 16px;
@@ -137,12 +124,10 @@ body {
 }
 
 @media (max-width: 480px) {
-    /* Dalsze zmniejszenie rozmiaru nagłówka na bardzo małych ekranach */
     .header h1 {
         font-size: 28px;
     }
 
-    /* Pole formularza */
     .input-group input {
         padding: 8px;
     }
