@@ -9,13 +9,13 @@ async function fetchAnimeStats() {
         });
 
         if (!response.ok) {
-            throw new Error('Błąd w odpowiedzi sieciowej');
+            throw new Error('Network response error');
         }
 
         const data = await response.json();
         updateCharts(data);
     } catch (error) {
-        console.error('Błąd podczas pobierania statystyk anime:', error);
+        console.error('Error while getting anime stats:', error);
     }
 }
 

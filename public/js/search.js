@@ -8,7 +8,7 @@ async function fetchAnime(data) {
     });
 
     if (!response.ok) {
-        throw new Error('Błąd sieciowy podczas pobierania danych.');
+        throw new Error('Network error while downloading data.');
     }
 
     return await response.json();
@@ -40,24 +40,20 @@ async function updateAnimeList() {
         // Przygotuj dane do wysłania
         const data = { search: query, status: status };
 
-        // Wykonaj zapytanie
         const animeList = await fetchAnime(data);
 
-        // Wywołanie funkcji renderującej
         renderAnimeList(animeList);
     } catch (error) {
-        console.error('Błąd podczas wyszukiwania:', error);
+        console.error('Error when searching:', error);
     }
 }
 
 function renderAnimeList(animeList) {
     const animeListContainer = document.querySelector('.anime-table tbody');
 
-    // Wyczyść poprzednią listę
     animeListContainer.innerHTML = '';
 
     if (animeList.length > 0) {
-        // Iteruj przez każdy element listy i stwórz wiersze w tabeli
         animeList.forEach(anime => {
             const row = document.createElement('tr');
             row.innerHTML = `
@@ -78,21 +74,18 @@ function renderAnimeList(animeList) {
             animeListContainer.appendChild(row);
         });
     } else {
-        // Jeśli brak wyników
         animeListContainer.innerHTML = '<tr><td colspan="6">No results!</td></tr>';
     }
 }
 
-// Nasłuchuj kliknięć na ikony usuwania
 document.querySelector('#anime-table-body').addEventListener('click', async function(event) {
     if (event.target.classList.contains('delete-anime')) {
-        const animeId = event.target.dataset.animeId; // Pobierz `animeId` z atrybutu `data-anime-id`
+        const animeId = event.target.dataset.animeId; 
 
         console.log('Clicked delete for anime ID:', animeId); // Debugging
 
         if (animeId) {
             try {
-                // Wyślij żądanie DELETE do serwera
                 const response = await fetch('/deleteAnime', {
                     method: 'POST',
                     headers: {
@@ -104,13 +97,12 @@ document.querySelector('#anime-table-body').addEventListener('click', async func
                 const result = await response.json();
 
                 if (result.success) {
-                    // Usuń wiersz z tabeli w interfejsie użytkownika
                     event.target.closest('tr').remove();
                 } else {
-                    console.error('Błąd podczas usuwania:', result.error);
+                    console.error('Error when deleting:', result.error);
                 }
             } catch (error) {
-                console.error('Błąd podczas usuwania:', error);
+                console.error('Error when deleting:', error);
             }
         }
     }
