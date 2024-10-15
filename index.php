@@ -77,8 +77,6 @@ $routing = [
         'action' => 'downloadDatabase',
         'access' => ['admin']
     ],
-
-    // Możesz dodać inne ścieżki...
 ];
 $path = trim($_SERVER['REQUEST_URI'], '/');
 $path = parse_url($path, PHP_URL_PATH);
@@ -99,5 +97,5 @@ if (array_key_exists($action, $routing)) {
     $controller->$actionName();
 } else {
     $controller = new AppController();
-    $controller->render('404'); // Strona 404 lub przekierowanie na stronę główną
+    $controller->render('404'); 
 }
