@@ -111,3 +111,41 @@ Password: he123avy
 - PHP
 - PostgreSQL
 
+
+## Screenshots
+
+### Home
+| Desktop       | Mobile     |
+|:-------------:|:------------:|
+|![Dashboard Main Desktop](https://i.imgur.com/MK7sqA0.png) | ![Dashboard Main Mobile](https://i.imgur.com/PXFUHMz.png)
+
+### Login
+| Desktop       | Mobile     |
+|:-------------:|:------------:|
+|![Profile Main Desktop](https://i.imgur.com/v1Hyfx2.png) | ![Profile Main Mobile](https://i.imgur.com/tfmYyuR.png)
+
+### Register
+| Desktop       | Mobile     |
+|:-------------:|:------------:|
+|![Profile Main Desktop](https://i.imgur.com/gj0cMG9.png) | ![Profile Main Mobile](https://i.imgur.com/1nyCNCl.png)
+
+### Stats / Dashboard
+| Desktop       | Mobile     |
+|:-------------:|:------------:|
+|![Profile Main Desktop](https://i.imgur.com/t3lQEOs.png) | ![Profile Main Mobile](https://i.imgur.com/R7pxUh5.png)
+
+### Anime List
+| Desktop       | Mobile     |
+|:-------------:|:------------:|
+|![Profile Main Desktop](https://i.imgur.com/QQu83er.png) | ![Profile Main Mobile](https://i.imgur.com/PdApLiK.png)
+
+### Add Anime
+| Desktop       | Mobile     |
+|:-------------:|:------------:|
+|![Profile Main Desktop](https://i.imgur.com/Hjn8it8.png) | ![Profile Main Mobile](https://i.imgur.com/nxVLlqe.png)
+
+### Admin Panel
+| Desktop       | Mobile     |
+|:-------------:|:------------:|
+|![Profile Main Desktop](https://i.imgur.com/MQUt3PT.png) | ![Profile Main Mobile](https://i.imgur.com/B7vGs8Q.png)
+
